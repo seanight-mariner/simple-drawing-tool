@@ -70,18 +70,6 @@ export const drawingSlice = createSlice({
       state.selectedShape = 'rectangle';
       state.selectedShapeId = null;
     },
-    startResizing: (state) => {
-      state.isResizing = true;
-    },
-    stopResizing: (state) => {
-      state.isResizing = false;
-    },
-     startMoving: (state) => {
-      state.isMoving = true;
-    },
-    stopMoving: (state) => {
-      state.isMoving = false;
-    },
   },
 });
 
@@ -93,10 +81,6 @@ export const {
   updateShapeSize,
   deleteShape,
   reset,
-  startResizing,
-  stopResizing,
-  startMoving,
-  stopMoving,
 } = drawingSlice.actions;
 
 export const selectIsResizing = (state: RootState) => state.drawing.isResizing;

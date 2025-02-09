@@ -6,10 +6,6 @@ import {
   setSelectedShapeId,
   updateShapePosition,
   updateShapeSize,
-  startResizing,
-  stopResizing,
-  startMoving,
-  stopMoving,
 } from '@/features/drawing-app';
 import { Shape, ResizeHandle } from './Shape';
 
@@ -93,7 +89,6 @@ const Canvas: React.FC = () => {
 
       if (clickedShape) {
         dispatch(setSelectedShapeId(clickedShape.id));
-        dispatch(startMoving()); // 이동 시작 액션 dispatch
         setIsDragging(true);
         setDragOffset({ x: x - clickedShape.x, y: y - clickedShape.y });
       } else {
@@ -176,7 +171,6 @@ const Canvas: React.FC = () => {
 
   const handleMouseUp = () => {
     setIsDragging(false);
-    dispatch(stopMoving()); // 이동 종료 액션 dispatch
     setIsResizing(false);
     setResizeHandle(null);
     setInitialShape(null); // 초기 도형 정보 초기화
@@ -201,7 +195,6 @@ const Canvas: React.FC = () => {
 
   const handleResizeStart = (handle: ResizeHandle, event: React.MouseEvent) => {
     event.stopPropagation();
-    dispatch(startResizing()); // 크기 조절 시작 액션 dispatch
     setIsResizing(true);
     setResizeHandle(handle);
 
@@ -211,7 +204,7 @@ const Canvas: React.FC = () => {
     }
   };
 
-  const handleResize = (handle: ResizeHandle, event: any, deltaX: number, deltaY: number) => {
+  const handleResize = (handle: ResizeHandle, event: MouseEvent, deltaX: number, deltaY: number) => {
     if (!selectedShapeId || !initialShape) return;
 
     let newWidth = initialShape.width;
@@ -264,7 +257,6 @@ const Canvas: React.FC = () => {
 
   const handleResizeEnd = () => {
     setIsResizing(false);
-    dispatch(stopResizing()); // 크기 조절 종료 액션 dispatch
     setResizeHandle(null);
     setInitialShape(null);
   };
