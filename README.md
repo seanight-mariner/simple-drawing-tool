@@ -1,14 +1,12 @@
 # Simple Drawing Tool
 
-![Alt text](https://user-images.githubusercontent.com/your-username/your-repo/blob/main/public/screenshot.png?raw=true)
+![screenshot](images/drawing_tool.png)
 
 간단한 드로잉 툴입니다. Next.js, Redux Toolkit, Tailwind CSS를 사용하여 만들었습니다. SVG 형식으로 도형을 그릴 수 있습니다.
 
 ## 데모
 
 [https://your-drawing-tool.vercel.app/](https://your-drawing-tool.vercel.app/)
-
-![Drawing Tool Logo](images/drawing.png)
 
 ## 주요 기능
 
@@ -62,7 +60,7 @@
 5.  "저장" 버튼을 사용하여 캔버스 내용을 PNG 파일로 저장할 수 있습니다.
 
 ## 폴더 구조
-
+```
 my-project/
 ├── src/
 │ ├── app/
@@ -90,3 +88,4 @@ my-project/
 ├── README.md
 ├── tsconfig.json
 └── tailwind.config.js
+```
